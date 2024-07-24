@@ -38,7 +38,6 @@ module.exports = {
   },
   rules: {
     'prettier/prettier': 'error',
-    // Custom rules can be added here
     'react/react-in-jsx-scope': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
   },
