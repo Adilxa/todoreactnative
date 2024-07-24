@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   View,
   StyleSheet,
@@ -6,7 +6,7 @@ import {
   Text,
   TouchableOpacity,
 } from 'react-native';
-import {useTasksStore} from '../../../store/modules/tasks';
+import { useTasksStore } from '../../../store/modules/tasks';
 
 type Props = {
   text: string;
@@ -15,8 +15,8 @@ type Props = {
   setModal: () => void;
 };
 
-const EditExistTask = ({text, description, id, setModal}: Props) => {
-  const {updateTask} = useTasksStore(state => state);
+const EditExistTask = ({ text, description, id, setModal }: Props) => {
+  const { updateTask } = useTasksStore(state => state);
 
   const [title, setTitle] = useState(text);
   const [desc, setDescription] = useState(description || '');
