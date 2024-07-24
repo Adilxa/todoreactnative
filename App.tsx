@@ -1,12 +1,10 @@
-import 'react-native-gesture-handler';
+import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import React from 'react';
-import { HomeScreen } from './src/pages/HomePage';
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import {HomeScreen} from './src/pages/HomePage';
 
 function App() {
-
   return (
-    <GestureHandlerRootView style={{ flex: 1 }}>
+    <GestureHandlerRootView style={{flex: 1}}>
       <HomeScreen />
     </GestureHandlerRootView>
   );

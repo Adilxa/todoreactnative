@@ -1,2 +1,2 @@
-import HomeScreen from "./HomePage"
-export { HomeScreen };
+import HomeScreen from './HomePage';
+export {HomeScreen};

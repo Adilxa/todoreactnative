@@ -1,2 +1,2 @@
-import ModalPopUp from "./Modal";
-export { ModalPopUp }
+import ModalPopUp from './Modal';
+export {ModalPopUp};
