@@ -44,7 +44,7 @@ function HomeScreen() {
                 <NoData />
             )}
             <AddTaskButton setModal={setOpen} />
-            <ModalPopUp visible={open} onClose={() => setOpen(false)}>
+            <ModalPopUp visible={open} setModal={setOpen}>
                 <CreateTaskForm onClose={() => setOpen(false)} />
             </ModalPopUp>
         </View>

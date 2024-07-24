@@ -106,7 +106,7 @@ const Task = ({ id, title, description, status }: Props) => {
                     </Animated.View>
                 </TouchableWithoutFeedback>
             </Swipeable>
-            <ModalPopUp visible={modal} onClose={() => setModal(false)}>
+            <ModalPopUp visible={modal} setModal={setModal}>
                 <EditExistTask
                     setModal={() => setModal(false)}
                     id={id}

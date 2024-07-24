@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useRef} from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   View,
   StyleSheet,
@@ -10,18 +10,17 @@ import {
 
 type Props = {
   visible: boolean;
-  onClose: () => void;
+  setModal: (_: boolean) => void;
   children: React.ReactNode;
 };
 
-const ModalPopUp = ({visible, onClose, children}: Props) => {
-  const [showModal, setShowModal] = useState(visible);
+const ModalPopUp = ({ visible, setModal, children }: Props) => {
   const fadeAnim = useRef(new Animated.Value(0)).current;
   const scaleAnim = useRef(new Animated.Value(0.7)).current;
 
   useEffect(() => {
     if (visible) {
-      setShowModal(true);
+      setModal(true)
       Animated.parallel([
         Animated.timing(fadeAnim, {
           toValue: 1,
@@ -50,29 +49,23 @@ const ModalPopUp = ({visible, onClose, children}: Props) => {
           easing: Easing.ease,
           useNativeDriver: true,
         }),
-      ]).start(() => setShowModal(false));
+      ]).start(() => setModal(false));
     }
   }, [visible]);
-
-  const handleOverlayPress = () => {
-    if (visible) {
-      onClose();
-    }
-  };
 
   return (
     <Modal
       transparent={true}
-      visible={showModal}
+      visible={visible}
       animationType="none"
-      onRequestClose={onClose}>
-      <TouchableWithoutFeedback onPress={handleOverlayPress}>
+      onRequestClose={() => setModal(false)}>
+      <TouchableWithoutFeedback onPress={() => setModal(false)}>
         <View style={styles.overlay}>
           <TouchableWithoutFeedback>
             <Animated.View
               style={[
                 styles.modalContainer,
-                {opacity: fadeAnim, transform: [{scale: scaleAnim}]},
+                { opacity: fadeAnim, transform: [{ scale: scaleAnim }] },
               ]}>
               {children}
             </Animated.View>
@@ -90,7 +83,7 @@ const styles = StyleSheet.create({
     elevation: 10,
     padding: 20,
     shadowColor: '#000',
-    shadowOffset: {width: 0, height: 5},
+    shadowOffset: { width: 0, height: 5 },
     shadowOpacity: 0.3,
     shadowRadius: 10,
     width: 300,
