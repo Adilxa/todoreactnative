@@ -1,3 +1,4 @@
+Stack: React Native CLI , AsyncStorage , Zustand , Eslint , Prettier , Typescript
 
 1) При первом запуске приложения вы увидите приветственный текст и кнопку. Прочитав текст, вы поймете, что необходимо нажать на кнопку "Add New Task" для добавления новой задачи.
 
