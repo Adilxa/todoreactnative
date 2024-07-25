@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Text,
@@ -7,18 +7,19 @@ import {
   StyleSheet,
   Alert,
 } from 'react-native';
-import {useTasksStore} from '../../../store/modules/tasks';
-import {generateUniqueId} from '../../../utils/idGenerator';
+import { useTasksStore } from '../../../store/modules/tasks';
+import { generateUniqueId } from '../../../utils/idGenerator';
 
 type CreateTaskFormProps = {
   onClose: () => void;
 };
 
-const CreateTaskForm: React.FC<CreateTaskFormProps> = ({onClose}) => {
+const CreateTaskForm: React.FC<CreateTaskFormProps> = ({ onClose }) => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
+  const [descriptionHeight, setDescriptionHeight] = useState(40);
 
-  const {addTask} = useTasksStore(state => state);
+  const { addTask } = useTasksStore(state => state);
 
   const validateForm = () => {
     if (!title.trim()) {
@@ -30,7 +31,7 @@ const CreateTaskForm: React.FC<CreateTaskFormProps> = ({onClose}) => {
 
   const handleSubmit = () => {
     if (validateForm()) {
-      addTask({title, description, id: generateUniqueId(), status: false});
+      addTask({ title, description, id: generateUniqueId(), status: false });
       setTitle('');
       setDescription('');
       onClose();
@@ -41,19 +42,24 @@ const CreateTaskForm: React.FC<CreateTaskFormProps> = ({onClose}) => {
     <View style={styles.container}>
       <Text style={styles.header}>Create New Task</Text>
       <TextInput
-        style={styles.input}
+        style={[styles.input, { height: 40 }]}
         placeholder="Title"
         placeholderTextColor="gray"
         value={title}
         onChangeText={setTitle}
       />
       <TextInput
-        style={styles.input}
+        style={[styles.input, { height: descriptionHeight }]}
         placeholder="Description"
         placeholderTextColor="gray"
         value={description}
         onChangeText={setDescription}
         multiline
+        onContentSizeChange={(e) => {
+          const height = e.nativeEvent.contentSize.height;
+          const maxHeight = 120;
+          setDescriptionHeight(height > maxHeight ? maxHeight : height);
+        }}
       />
       <TouchableOpacity style={styles.button} onPress={handleSubmit}>
         <Text style={styles.buttonText}>Submit</Text>
@@ -78,8 +84,8 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: '#fff',
     borderRadius: 10,
+    padding: 20,
     shadowColor: '#000',
-    width: '100%',
   },
   header: {
     color: 'gray',
@@ -93,9 +99,9 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     borderWidth: 1,
     color: 'black',
-    height: 40,
     marginBottom: 15,
     paddingHorizontal: 10,
+    textAlignVertical: 'top',
   },
 });
 
