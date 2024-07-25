@@ -24,4 +24,5 @@ Stack: React Native CLI p.s (Expo тоже умею) , AsyncStorage , Zustand , 
 ![image](https://github.com/user-attachments/assets/d924f94b-5370-46ac-93d3-42bbcd24f82f)
 ![image](https://github.com/user-attachments/assets/8d15f597-d12c-423e-99b0-e16468f4acfc)
 ![image](https://github.com/user-attachments/assets/505e7e4c-8351-4f24-90c7-95634ab18630)
+![image](https://github.com/user-attachments/assets/5c47302e-587b-4f24-8b01-204ce2977285)
 
