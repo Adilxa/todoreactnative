@@ -11,7 +11,7 @@ import CreateTaskForm from './atoms/CreateTaskForm';
 function HomeScreen() {
     const { tasks, loadTasks } = useTasksStore(state => state);
 
-    const [open, setOpen] = useState(false);
+    const [modal, setModal] = useState(false);
 
     const renderItem = useMemo(
         () =>
@@ -43,9 +43,9 @@ function HomeScreen() {
             ) : (
                 <NoData />
             )}
-            <AddTaskButton setModal={setOpen} />
-            <ModalPopUp visible={open} setModal={setOpen}>
-                <CreateTaskForm onClose={() => setOpen(false)} />
+            <AddTaskButton setModal={setModal} />
+            <ModalPopUp visible={modal} setModal={setModal}>
+                <CreateTaskForm onClose={() => setModal(false)} />
             </ModalPopUp>
         </View>
     );

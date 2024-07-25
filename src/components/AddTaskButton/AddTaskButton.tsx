@@ -26,14 +26,13 @@ const styles = StyleSheet.create({
     wrapper: {
         alignItems: 'center',
         backgroundColor: '#fff',
-        borderRadius: 50,
-        elevation: 3,
-        height: 60,
+        borderRadius: 10,
+        elevation: 20,
+        paddingVertical: 15,
         justifyContent: 'center',
         paddingHorizontal: 20,
-        shadowOffset: { width: 5, height: 2 },
-        shadowOpacity: 1,
-        shadowRadius: 5,
+        shadowOpacity: 10,
+        shadowRadius: 20,
     },
 });
 
